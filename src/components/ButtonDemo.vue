@@ -2,14 +2,37 @@
     <h1>示例1</h1>
     <div>
         <Button>你好</Button>
+        <Button theme="button">你好</Button>
+        <Button theme="link">你好</Button>
+        <Button theme="text">你好</Button>
+    </div>
+    <h1>示例2</h1>
+    <div>
+        <Button size="big">大大大</Button>
+        <Button>普通</Button>
+        <Button size="small">小小小</Button>
+    </div>
+    <h1>示例4</h1>
+    <div>
+        <Button>Hi</Button>
+        <Button disabled>Hello</Button>
+        <Button :disabled=" true ">Hello World</Button>
+    </div>
+    <h1>示例5</h1>
+    <div>
+        <Button loading>加载中</Button>
     </div>
 </template>
 <script lang="ts">
-import Button from '../lib/Button.vue'
+import Button from '../lib/button.vue'
 export default {
     components:{Button},
     setup() {
-        
+        const onClick = ()=>{
+            const onClick = ()=>{
+                return {onClick}
+            }
+        }
     },
 }
 </script>
