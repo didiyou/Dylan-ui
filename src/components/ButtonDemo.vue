@@ -1,38 +1,25 @@
 <template>
-    <h1>示例1</h1>
     <div>
-        <Button>你好</Button>
-        <Button theme="button">你好</Button>
-        <Button theme="link">你好</Button>
-        <Button theme="text">你好</Button>
-    </div>
-    <h1>示例2</h1>
-    <div>
-        <Button size="big">大大大</Button>
-        <Button>普通</Button>
-        <Button size="small">小小小</Button>
-    </div>
-    <h1>示例4</h1>
-    <div>
-        <Button>Hi</Button>
-        <Button disabled>Hello</Button>
-        <Button :disabled=" true ">Hello World</Button>
-    </div>
-    <h1>示例5</h1>
-    <div>
-        <Button loading>加载中</Button>
+        <h1>Button 示例</h1>
+        <Demo :component="Button1Demo"/>
+        <Demo :component="Button2Demo"/>
+        <Demo :component="Button3Demo"/>
     </div>
 </template>
+
 <script lang="ts">
-import Button from '../lib/Button.vue'
-export default {
-    components:{Button},
-    setup() {
-        const onClick = ()=>{
-            const onClick = ()=>{
-                return {onClick}
-            }
+import Button1Demo from "./ButtonDemo1.vue"
+import Button2Demo from "./ButtonDemo2.vue"
+import Button3Demo from "./ButtonDemo3.vue"
+import Demo from "./Demo.vue"
+export default{
+    components:{Demo},
+    setup(){
+        return{
+            Button1Demo,
+            Button2Demo,
+            Button3Demo
         }
-    },
+    }
 }
 </script>

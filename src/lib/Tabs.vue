@@ -3,10 +3,9 @@
   <div class="dylan-tabs-nav" ref="container">
     <div
       class="dylan-tabs-nav-item"
-      :class="{ selected: t === selected }"
       v-for="(t, index) in titles"
+      :class="{ selected: t === selected }"
       @click="select(t)"
-      ref="indicator"
       :ref="el=>{if (t === selected) selectedItems = el}"
       :key="index">
       {{ t }}
@@ -14,7 +13,7 @@
     <div class="dylan-tabs-nav-indicator" ref="indicator"></div>
   </div>
   <div class="dylan-tabs-content">
-      <component :is="current"  />
+      <component :is="current" />
   </div>
   </div>
 </template>
@@ -33,6 +32,7 @@ export default {
     const container = ref<HTMLDivElement>(null)
     onMounted(()=>{
       watchEffect(()=>{
+        
       const {width} = selectedItems.value.getBoundingClientRect()
       indicator.value.style.width = width + 'px'
       const {left:left1} = container.value.getBoundingClientRect()
@@ -48,10 +48,12 @@ export default {
       }
     });
     const current = computed(()=>{
+      console.log(defaults)
       return defaults.find(tag=>{tag.props.title === props.selected})
     })
+    
     const select = (title: string) => {
-      context.$emit("update:selected", title);
+      context.emit("update:selected", title);
     };
     const titles = defaults.map((tag) => {
       return tag.props.title;

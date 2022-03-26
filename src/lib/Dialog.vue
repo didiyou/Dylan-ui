@@ -1,4 +1,4 @@
-<template>
+
 <template v-if="visible">
 <teleport to='body'>
     <div @click="OnClickOverlay" class="dylan-dialog-overlay"></div>
@@ -19,7 +19,7 @@
     </div>
 </teleport>
 </template>
-</template>
+
 <script lang="ts">
 import Button from "./Button.vue"
 export default{
@@ -42,7 +42,8 @@ export default{
     components:{Button},
     setup(props,context){
         const close=()=>{
-            context.emit('update:visible',false)
+            console.log('点击XX')
+            context.emit('onUpdate:visible',false)
         }
         const OnClickOverlay=()=>{
             if(props.closeOnClickOverlay)
@@ -82,10 +83,18 @@ export default{
             transform:translate(-50%,-50%);
             z-index:11;
         }
-        >header{
+        > header{
+            padding:12px 16px;
+            border-bottom: 1px solid $border-color;
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+        }
+        > main{
             padding:12px 16px;
         }
-        >footer{
+        > footer{
             border-top:1px solid $border-color;
             padding:12px 16px;
             text-align: right;

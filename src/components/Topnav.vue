@@ -24,8 +24,9 @@ export default {
           default:false
       }
   },
-  setup() {
+  setup(props) {
     const menuVisible = inject<Ref<boolean>>("menuVisible");
+    
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value;
     };
@@ -58,12 +59,11 @@ $color: #0b958e;
     display: flex;
     white-space: nowrap;
     > .li {
-      margin: 0 1em;
+      margin: 0 auto;
     }
   }
 
   > .toggleAside {
-    display: inline-block;
     position: absolute;
     width: 24px;
     height: 24px;
@@ -71,6 +71,7 @@ $color: #0b958e;
     top: 50%;
     transform: translateY(-50%);
     display: none;
+    background: fade-out(black, 0.9);
   }
   @media (max-width: 500px) {
     > .menu {

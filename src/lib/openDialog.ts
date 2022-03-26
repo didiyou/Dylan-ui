@@ -5,12 +5,14 @@ export const openDialog = (options)=>{
     const div = document.createElement('div')
     document.body.appendChild(div)
     const close = ()=>{
+        console.log('卸载')
+        //@ts-ignore
         app.unmount(div)
         div.remove()
     }
     const app = createApp({
         render(){
-            return h(Dialog,{visible:true,'onUpdate:visible':(newVisible)=>{
+            return h(Dialog,{visible:true,"onUpdate:visible":(newVisible)=>{
                 if(newVisible === false){
                     close()
                 }
@@ -18,5 +20,4 @@ export const openDialog = (options)=>{
         }
     })
     app.mount(div)
-
 }

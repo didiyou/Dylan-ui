@@ -1,4 +1,4 @@
-
+<demo>示例2</demo>
 <template>
 <Switch v-model:value="bool" disabled />
 </template>
