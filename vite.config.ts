@@ -12,6 +12,7 @@ export default {
     demo: function (options) {
       const { code, path } = options
       const file = fs.readFileSync(path).toString()
+      console.log(file)
       const parsed = baseParse(file).children.find(n => n.tag === 'demo')
       const title = parsed.children[0].content
       const main = file.split(parsed.loc.source).join('').trim()

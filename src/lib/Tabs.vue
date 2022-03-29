@@ -13,7 +13,7 @@
     <div class="dylan-tabs-nav-indicator" ref="indicator"></div>
   </div>
   <div class="dylan-tabs-content">
-      <component :is="current" />
+      <component :is="current" :key="current"/>
   </div>
   </div>
 </template>
@@ -32,7 +32,6 @@ export default {
     const container = ref<HTMLDivElement>(null)
     onMounted(()=>{
       watchEffect(()=>{
-        
       const {width} = selectedItems.value.getBoundingClientRect()
       indicator.value.style.width = width + 'px'
       const {left:left1} = container.value.getBoundingClientRect()
@@ -53,7 +52,7 @@ export default {
     })
     
     const select = (title: string) => {
-      context.emit("update:selected", title);
+      context.emit('update:selected', title);
     };
     const titles = defaults.map((tag) => {
       return tag.props.title;

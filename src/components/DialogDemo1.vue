@@ -8,7 +8,7 @@
                 <div>Hi</div>
             </template>
             <template v-slot:title>
-                <strong>加粗的标题</strong>
+                <strong>加粗的标题{{x}}</strong>
             </template>
         </Dialog>
     </div>
@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue'
-import Button from '../lib/Button.vue'
+import Button from '../lib/Button1.vue'
 import {ref} from 'vue'
 export default{
     components:{
