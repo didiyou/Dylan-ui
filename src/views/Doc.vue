@@ -48,19 +48,20 @@ $aside-index:10;
   height: 100vh;
   > .nav {
     flex-shrink: 0;
+    z-index:12;
   }
   > .content {
     flex-grow:1;
     padding-top:60px;
     padding-left:156px;
     display: flex;
+    flex-direction: row;
     @media (max-width:500px) {
       padding-left:0;
     }
   }
 }
 .content {
-  display: flex;
   > aside {
     flex-shrink: 0;
     z-index:$aside-index;

@@ -1,6 +1,5 @@
-<template>
-<template v-if="visible">
-<teleport to='body'>
+<template >
+<teleport to='body' v-if="visible">
     <div @click="OnClickOverlay" class="dylan-dialog-overlay"></div>
     <div class="dylan-dialog-wrapper">
         <div class="dylan-dialog">
@@ -19,7 +18,7 @@
     </div>
 </teleport>
 </template>
-</template>
+
 
 <script lang="ts">
 import Button from "./Button1.vue"
@@ -51,9 +50,9 @@ export default{
             {close()}
         }
         const ok=()=>{
-            if(props.ok?.()!==false){close()}
+            if(props.ok && props.ok()!==false){close()}
         }
-        const cancel=()=>{props.cancel?.()}
+        const cancel=()=>{props.cancel && props.cancel()}
         return {close,OnClickOverlay,ok,cancel}
     }
 }

@@ -38,7 +38,7 @@ export default {
       const {left:left2} = selectedItems.value.getBoundingClientRect()
       const left = left2 - left1
       indicator.value.style.left = left + 'px'
-    })
+    },{flush:'post'})
     })
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
@@ -47,8 +47,7 @@ export default {
       }
     });
     const current = computed(()=>{
-      console.log(defaults)
-      return defaults.find(tag=>{tag.props.title === props.selected})
+      return defaults.find(tag=>{return tag.props.title === props.selected})
     })
     
     const select = (title: string) => {
@@ -64,7 +63,7 @@ export default {
 <style lang="scss">
 $blue:#40a9ff;
 $color:#333;
-$border-color:#d9d9d9;
+$border-color:#d9d9d9; 
 .dylan-tabs{
   &-nav{
     display:flex;
